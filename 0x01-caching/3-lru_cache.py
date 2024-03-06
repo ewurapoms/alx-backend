@@ -2,6 +2,7 @@
 """ Basecaching Module"""
 
 from base_caching import BaseCaching
+from collections import OrderedDict
 
 
 class LRUCache(BaseCaching):
@@ -10,6 +11,7 @@ class LRUCache(BaseCaching):
     def __init__(self):
         """initializer"""
         super().__init__()
+        self.order = OrderedDict()
 
     def put(self, key, item):
         """Add an item in the cache"""
