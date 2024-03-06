@@ -36,9 +36,6 @@ class LFUCache(BaseCaching):
 
     def get(self, key):
         """Get an item by key"""
-        if key is not None and key in self.cache_data.keys():
-            del self.usage[self.usage.index(key)]
-            self.usage.append(key)
+         if key in self.cache_data:
             self.count[key] += 1
-            return self.cache_data[key]
-        return None
+            return self.cache_data.get(key)
